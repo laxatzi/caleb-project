@@ -27,3 +27,7 @@ textarea {
     width: 50%;
     height: 10rem;
 }
+.frame {
+   width: 50%;
+   margin: 20px auto;
+}
