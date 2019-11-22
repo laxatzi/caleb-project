@@ -14,3 +14,16 @@ form{
    width: 50%;
    margin: 0 auto;
 }
+
+select,
+textarea {
+   margin-bottom: 1rem;
+}
+::placeholder {
+    font-size: .9rem;
+    font-family: 'courier new' , monospace;
+}
+textarea {
+    width: 50%;
+    height: 10rem;
+}
