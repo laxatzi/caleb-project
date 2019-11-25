@@ -45,3 +45,11 @@ button {
    border-radius: 5px;
 }
 
+.audio{
+   margin: 5% auto;
+   width: 50%;
+}
+
+button#audio_button{
+   background-color:orangered;
+}

@@ -16,3 +16,16 @@ function normalScreen(){
 function bigScreen(){
    video.width = 700;
 }
+
+//code for my audio player
+let audio = document.getElementById('audio1');
+
+function playOrPauseAudio(){
+   if(audio.paused){
+      audio.play();
+   } else{
+      audio.pause();
+   }
+
+}
+
