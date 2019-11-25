@@ -32,7 +32,16 @@ textarea {
    margin: 20px auto;
 }
 
-video {
-   margin: 10px auto;
-   display: block;
+.video {
+   margin: 5% auto;
+   width: 50%;
 }
+button {
+   margin: 10px 5px;
+   padding: 10px;
+   background-color:steelblue;
+   color: black;
+   border: 1px solid transparent;
+   border-radius: 5px;
+}
+
