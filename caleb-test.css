@@ -31,3 +31,8 @@ textarea {
    width: 50%;
    margin: 20px auto;
 }
+
+video {
+   margin: 10px auto;
+   display: block;
+}
