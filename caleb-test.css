@@ -53,3 +53,31 @@ button {
 button#audio_button{
    background-color:orangered;
 }
+
+
+footer {
+   border: 1px solid red;
+   height: 10vh;
+   position: relattive;
+}
+img {
+   position: absolute;
+}
+.bg-Facebook,
+.bg-Twitter {
+   background: url("img/css_sprites.png") no-repeat;
+
+}
+.bg-Facebook {
+   width: 250px; /* Icon width */
+   height: 50px; /* Icon height */
+   display: inline-block; /* Display icon as inline block */
+   background-position: 0 0; /* Icon background position in sprite */
+}
+
+.bg-Twitter {
+   width: 250px; /* Icon width */
+    height: 50px; /* Icon height */
+    display: inline-block; /* Display icon as inline block */
+    background-position: 200px 0; /* Icon background position in sprite */
+}
