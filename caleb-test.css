@@ -69,15 +69,15 @@ img {
 
 }
 .bg-Facebook {
-   width: 250px; /* Icon width */
+   width: 210px; /* Icon width */
    height: 50px; /* Icon height */
-   display: inline-block; /* Display icon as inline block */
    background-position: 0 0; /* Icon background position in sprite */
+   left: 330px;
 }
 
 .bg-Twitter {
-   width: 250px; /* Icon width */
+   width: 210px; /* Icon width */
     height: 50px; /* Icon height */
-    display: inline-block; /* Display icon as inline block */
-    background-position: 200px 0; /* Icon background position in sprite */
+    background-position: 0 -58px; /* Icon background position in sprite */
+    left: 100px;
 }
