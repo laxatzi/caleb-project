@@ -28,4 +28,13 @@ function playOrPauseAudio(){
    }
 
 }
+function confirmFunction(){
+   confirm("Do you want to leave?");
+   if(confirm===true){
+      alert("Good bye!");
+   }
+   else{
+      alert("Happy to see you stay!");
+   }
+}
 
