@@ -37,4 +37,11 @@ function confirmFunction(){
       alert("Happy to see you stay!");
    }
 }
-
+function promptFunction(){
+   var age = prompt("How old are you?");
+   if(age){
+      alert("So you are "+age+" years old!" );
+   }else{
+      alert("No input filled in!");
+   }
+}
