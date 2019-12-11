@@ -85,3 +85,8 @@ img {
     background-position: 0 -58px; /* Icon background position in sprite */
     left: 100px;
 }
+
+#testID {
+   height: 5vh;
+   margin: 20px;
+}

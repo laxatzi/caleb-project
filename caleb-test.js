@@ -45,3 +45,13 @@ function promptFunction(){
       alert("No input filled in!");
    }
 }
+function selectID(id){
+   return document.getElementById(id);
+}
+
+function changeMe(){
+   selectID('testID').style.border= "1px solid red";
+   selectID('testID').innerHTML = "Border added!";
+   selectID('btn').innerHTML = "Changed!";
+   selectID('btn').disabled = true;
+}
