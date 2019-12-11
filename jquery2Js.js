@@ -1,4 +1,5 @@
-// focus() 
+//FOCUS
+// focus() jquery 
 /*
     $("#focus").focus();
 */
@@ -7,7 +8,8 @@ function setFocus() {
    document.getElementById("focus").focus(); 
 } 
 
-// blur() 
+//BLUR
+// blur()  jquery
 /*
     $("#focus").blur();
 */
@@ -17,7 +19,8 @@ function removeFocus() {
 }
 
 
-// hover()
+// HOVER
+// hover() jquery
 /*
     $(#box).hover(
       function(){
@@ -41,7 +44,7 @@ greyBox.addEventListener("mouseout", event => {
   console.log("Mouse out");
 });
 
-// toggle
+// TOGGLE
 /*
 function toggleFunction(){
   $(".myDIV").toggleClass("toggleDiv");
@@ -53,7 +56,7 @@ function toggleFunction() {
   element.classList.toggle("toggleDiv");
 }
 
-// CSS style elements
+//  CSS STYLE ELEMENTS
 // With jQuery
 
   /* Pass multiple styles
@@ -72,3 +75,11 @@ function toggleFunction() {
 
   // Set all styles at once (and override any existing styles)
   box2.style.cssText = "color: #000; background-color: #f00";
+
+  //CLICK
+  // with jquery
+  /*
+  $(".btn").click(function(e) { handle click event });
+  */
+ //without jquery
+ document.querySelector(".btn").addEventListener("click", (e)=> { /* handle event listener */ });
