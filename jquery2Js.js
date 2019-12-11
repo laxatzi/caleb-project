@@ -147,3 +147,48 @@ function fadein(el){
   pink.classList.add("fadein_show");
   pink.classList.remove("fadeout_hide");
 }
+
+// SLIDE
+
+// HTML
+
+// TEXT OF AN ELEMENT ... read(get) or update(set)
+
+//with jquery
+/*
+   set button text -- $('.button').text("some new text");
+   read(get) button text -- $(".button").text();
+
+*/
+
+// without jquery  *(use of innerHTML not advisable for safety reasons regarding this purpose)
+document.querySelector(".button").textContent = "some text"; // set
+document.querySelector(".button").textContent; // get
+
+// CONSTRUCTION OF AN ELEMENT
+ 
+// with jquery
+/*
+  --create div and append it to .container
+   $(".container").append($("<div></div>"));
+*/
+// without jquery 
+const element = document.createElement("div");
+document.querySelector(".container").appendChild(element);
+
+// Put together, here’s how to create a div, update its text and class, and add it to the DOM:
+
+    //create a div
+    const elem = document.createElement("div");
+    // update its class 
+    elem.classList.add("class");
+    //update its content
+    elem.textContent = "some text inside";
+    // append the element to a container 
+    document.querySelector(".container").appendChild(elem);
+
+// or
+/*
+    const unorderedList = document.querySelector("#list");
+    unorderedList.insertAdjacentHTML("beforeend", `<li>list item</li>`);
+*/
