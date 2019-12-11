@@ -113,3 +113,12 @@ $(".button").mouseenter(function(e) { handle event listener });
 */
 // without jquery
 document.querySelector(".button").addEventListener("mouseenter", (e)=> { /*handle event listener*/ });
+
+// HIDE & SHOW
+  // with jquery
+  $(".class").hide();
+  $(".class").show();
+
+  // without jquery
+  document.querySelector(".class").style.display= "none";
+  document.querySelector(".class").style.display = "block";
