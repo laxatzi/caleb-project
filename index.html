@@ -48,22 +48,17 @@
             font-weight: bold;
          }
          input[type="button"]:hover{
-            font-size: 1.15rem;
+            background-color: rgb(214, 115, 78);
          }
    </style>
 </head>
 <body>
    <form action="#"> 
-   <label for="focus">Hover With Focus: </label> 
-   <input type="text" onmousemove=myFunction() id="focus"> 
-      
-      <!-- onmousemove is an event which occurs when somenone  
-      hovers the mouse on that particular element and calls  
-      the function of javascript --> 
-     
-      <label for="no_focus">Hover Without Focus: </label> 
-      <input type="text" id="no_focus"> 
-      <input type="button" value="submit"> 
+         <input type="button" onclick="setFocus()" value="set focus"> 
+         <input type="button" onclick="removeFocus()" value="remove focus"> 
+         <br> 
+         <br> 
+         <input type="text" id="focus"> 
   </form> 
   <script type="text/javascript" src="jquery2Js.js"></script> 
 </body>
