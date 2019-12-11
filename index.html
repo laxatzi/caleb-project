@@ -57,6 +57,26 @@
             background-color: grey;
             margin: 10px auto;
          }
+         #button {
+            padding: 10px;
+            margin: 10px auto 3px;
+            background-color: green;
+            color: yellow;
+            font-size: 1rem;
+            border: 1px solid transparent;
+            border-radius: 5px;
+         }
+         .myDIV {
+            display: none;
+            color: white;
+            background-color: rgb(23, 200, 23);
+            margin: 0 auto;
+            width: 50%;
+         }
+         .toggle {
+            display: block;
+         }
+    
    </style>
 </head>
 <body>
@@ -68,7 +88,10 @@
          <input type="text" id="focus"> 
   </form> 
   <div id="box"></div>
-
+  <div class="toggleButton">
+      <button id="button" onclick="toggleFunction()">Toggle the div</button>
+      <div class="myDIV">This is a DIV element. </div>
+  </div>
   <script type="text/javascript" src="jquery2Js.js"></script> 
 </body>
 </html>
