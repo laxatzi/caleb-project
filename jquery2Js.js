@@ -43,12 +43,13 @@ greyBox.addEventListener("mouseout", event => {
 
 // toggle
 /*
-$(".button").click(function(){
-  $(".paragraph").toggle();
+function toggleFunction(){
+  $(".myDIV").toggleClass("toggleDiv");
 });
 */
 // jquery hover() in vanilla js
 function toggleFunction() {
   const element = document.querySelector(".myDIV");
-  element.classList.toggle("toggle");
+  element.classList.toggle("toggleDiv");
 }
+
