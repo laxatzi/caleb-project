@@ -86,6 +86,40 @@
      .toggleButton {
         margin-bottom: 2rem;
      }
+      .pink {
+         display: block;
+         height: 5vh;
+         width: 50%;
+         margin: 20px auto;
+         background-color:rgb(23, 200, 23);
+      }
+      .btn1 {
+         background-color: rgb(23, 200, 23);
+         padding: 10px;
+         border: 1px solid transparent;
+         border-radius: 5px;
+      }
+      .btn2 {
+         background-color: yellow;
+         padding: 10px;
+         border: 1px solid transparent;
+         border-radius: 5px;
+      }
+      .fadein_show {
+            opacity: 1;
+            transition: opacity 400ms;
+            }
+      .fadein_hide {
+         opacity: 0;
+         }
+
+      .fadeout_show {
+         opacity: 1;
+         }
+      .fadeout_hide {
+         opacity: 0;
+         transition: opacity 400ms;
+         }
    </style>
 </head>
 <body>
@@ -103,6 +137,12 @@
   </div>
   <h3>Following div will be grey when JS is disabled</h3>
   <div class="box2"></div>
+
+  <div class="pinkDiv">
+      <div class="pink"></div>
+      <button class="btn1" onclick="fadeout()">Fade out</button>
+      <button class="btn2" onclick="fadein()">Fade in</button>
+  </div>
   <script type="text/javascript" src="jquery2Js.js"></script> 
 </body>
 </html>

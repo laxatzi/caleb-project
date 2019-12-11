@@ -82,7 +82,7 @@ function toggleFunction() {
   $(".btn").click(function(e) { handle click event });
   */
  //without jquery
- document.querySelector(".btn").addEventListener("click", (e)=> { /* handle event listener */ });
+ // document.querySelector(".btn").addEventListener("click", (e)=> { /* handle event listener */ });
 
   // events with keys
   /*
@@ -112,13 +112,38 @@ document.addEventListener("keyup", (e)=> { /* handle keyup event*/ });
 $(".button").mouseenter(function(e) { handle event listener });
 */
 // without jquery
-document.querySelector(".button").addEventListener("mouseenter", (e)=> { /*handle event listener*/ });
+//document.querySelector(".button").addEventListener("mouseenter", (e)=> { /*handle event listener*/ });
 
 // HIDE & SHOW
   // with jquery
+  /*
   $(".class").hide();
   $(".class").show();
-
+*/
   // without jquery
+  /*
   document.querySelector(".class").style.display= "none";
   document.querySelector(".class").style.display = "block";
+*/
+  // FADEIN -- FADEOUT
+
+// With jQuery
+/*
+$(".btn1").click(function(){
+  $(".pink").fadeOut();
+});
+$(".btn2").click(function(){
+  $("pink").fadeIn();
+});
+*/
+
+// without jQuery
+const pink = document.querySelector(".pink");
+function fadeout(){
+   pink.classList.add("fadeout_hide");
+   pink.classList.remove("fadeout_show");
+}
+function fadein(el){
+  pink.classList.add("fadein_show");
+  pink.classList.remove("fadeout_hide");
+}
