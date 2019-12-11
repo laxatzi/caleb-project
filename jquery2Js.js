@@ -83,3 +83,33 @@ function toggleFunction() {
   */
  //without jquery
  document.querySelector(".btn").addEventListener("click", (e)=> { /* handle event listener */ });
+
+  // events with keys
+  /*
+  .keyup()
+  .keydown()
+  .keypress()
+  */
+ // with jquery
+ /*
+ $(document).keyup(function(e) { handle keyup event });
+*/
+// without jquery
+document.addEventListener("keyup", (e)=> { /* handle keyup event*/ });
+
+ // mouse events
+ /*
+    .mouseup();
+    .mousedown();
+    .mouseover();
+    .mouseenter();
+    .mouseleave();
+    .mouseover();
+    .mouseout();
+ */
+// with jQuery
+/*
+$(".button").mouseenter(function(e) { handle event listener });
+*/
+// without jquery
+document.querySelector(".button").addEventListener("mouseenter", (e)=> { /*handle event listener*/ });
