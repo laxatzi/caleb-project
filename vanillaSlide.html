@@ -83,15 +83,15 @@ let slideUp = (target, duration=500) => {
 
    // Finally remove all the additional properties after the animation completes. This can be easily accomplished with the help of setTimeout function.
     window.setTimeout( () => {
-      target.style.display = 'none';
-      target.style.removeProperty('height');
-      target.style.removeProperty('padding-top');
-      target.style.removeProperty('padding-bottom');
-      target.style.removeProperty('margin-top');
-      target.style.removeProperty('margin-bottom');
-      target.style.removeProperty('overflow');
-      target.style.removeProperty('transition-duration');
-      target.style.removeProperty('transition-property');
+      target.style.display = 'none'; //hide the target element
+      target.style.removeProperty('height'); // remove inline height property
+      target.style.removeProperty('padding-top'); // remove inline padding properties
+      target.style.removeProperty('padding-bottom'); // same as above
+      target.style.removeProperty('margin-top'); // remove inline margin properties
+      target.style.removeProperty('margin-bottom'); // same as above
+      target.style.removeProperty('overflow'); // remove inline overflow
+      target.style.removeProperty('transition-duration'); // remove inline transition properties 
+      target.style.removeProperty('transition-property'); // same as above
       //alert("!");
     }, duration);
   }
