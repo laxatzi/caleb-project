@@ -61,12 +61,27 @@ let slideUp = (target, duration=500) => {
     target.style.boxSizing = 'border-box';
     target.style.height = target.offsetHeight + 'px';
     target.offsetHeight;
+ 
+    // Add the CSS transition-property to our target. 
+    // 1.Apply it to the height, margin, and padding properties of the target.
+    // 2. Then add the CSS transition-duration property to our target. This takes the duration argument we supply in the slideUP function.
+   // 3.Make the element contain the padding and border (box-sizing:border-box)
+   // 4.Get the net height of the target and...
+   // 5. Use it to set the CSS height attribute
+
+   //Now, the slideUp function should make the target element switch its state to hidden. Let’s zero down a bunch of CSS properties for that matter.
     target.style.overflow = 'hidden';
     target.style.height = 0;
     target.style.paddingTop = 0;
     target.style.paddingBottom = 0;
     target.style.marginTop = 0;
     target.style.marginBottom = 0;
+   // 6. Set the overflow property to hidden
+   // 7. Zero down the CSS height for the target
+   // 8. Zero down the vertical padding i.e padding-top and padding-bottom if any
+   // 9. Zero down the vertical marging i.e margin-top and margin-bottom if any  
+
+   // Finally remove all the additional properties after the animation completes. This can be easily accomplished with the help of setTimeout function.
     window.setTimeout( () => {
       target.style.display = 'none';
       target.style.removeProperty('height');
@@ -119,7 +134,7 @@ let slideUp = (target, duration=500) => {
       return slideUp(target, duration);
     }
   }
-
+//Animation trigger 
   document.getElementById("trigger").addEventListener('click', function() {
        slideToggle(document.getElementById("target"), 200);
 });
