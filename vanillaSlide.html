@@ -54,8 +54,9 @@
     ... Slide-toggle logic 
    }
    */
-// for simplicity reason we keep the trigger independent from the scope of the above functions
-let slideUp = (target, duration=500) => {
+// for simplicity reasons we keep the trigger independent from the scope of the above functions
+
+let slideUp = (target, duration ) => {
     target.style.transitionProperty = 'height, margin, padding';
     target.style.transitionDuration = duration + 'ms';
     target.style.boxSizing = 'border-box';
@@ -79,7 +80,7 @@ let slideUp = (target, duration=500) => {
    // 6. Set the overflow property to hidden
    // 7. Zero down the CSS height for the target
    // 8. Zero down the vertical padding i.e padding-top and padding-bottom if any
-   // 9. Zero down the vertical marging i.e margin-top and margin-bottom if any  
+   // 9. Zero down the vertical margin i.e margin-top and margin-bottom if any  
 
    // Finally remove all the additional properties after the animation completes. This can be easily accomplished with the help of setTimeout function.
     window.setTimeout( () => {
@@ -96,30 +97,35 @@ let slideUp = (target, duration=500) => {
     }, duration);
   }
 
-  let slideDown = (target, duration=500) => {
-    target.style.removeProperty('display');
-    let display = window.getComputedStyle(target).display;
-
-    if (display === 'none')
+  let slideDown = (target, duration) => {
+    target.style.removeProperty('display');   // remove the previously set display prop if any
+    // If by chance the current display property of the target is set to none, switch it to block
+   let display = window.getComputedStyle(target).display; 
+    if (display === 'none'){
       display = 'block';
-
+   }
     target.style.display = display;
-    let height = target.offsetHeight;
-    target.style.overflow = 'hidden';
-    target.style.height = 0;
-    target.style.paddingTop = 0;
+
+//Make sure the initial state of our target element is hidden. Let’s add some more code in our slideDown function to ensure the hidden state of our element.
+let height = target.offsetHeight;  // store current height of the element
+    target.style.height = 0; 
+    target.style.paddingTop = 0; // zero down vertical padding, if any
     target.style.paddingBottom = 0;
-    target.style.marginTop = 0;
+    target.style.marginTop = 0; //  zero down vertical margin, in any
     target.style.marginBottom = 0;
-    target.offsetHeight;
-    target.style.boxSizing = 'border-box';
-    target.style.transitionProperty = "height, margin, padding";
-    target.style.transitionDuration = duration + 'ms';
-    target.style.height = height + 'px';
-    target.style.removeProperty('padding-top');
+    target.style.overflow = 'hidden'; // prevent anything flow outside the element
+
+//Now is the time to write the actual logic to slide the target element down. This can be done by adding the height and transition properties to the target element.
+
+    target.style.boxSizing = 'border-box'; // make element contain padding and borders (border-box)
+    target.style.transitionProperty = "height, margin, padding"; // apply transition properties
+    target.style.transitionDuration = duration + 'ms'; // add transition duration based on argument
+    target.style.height = height + 'px'; // set the height property based on  height previously stored
+    target.style.removeProperty('padding-top'); // remove inline vertical padding 
     target.style.removeProperty('padding-bottom');
-    target.style.removeProperty('margin-top');
+    target.style.removeProperty('margin-top'); // remove inline vertical margin
     target.style.removeProperty('margin-bottom');
+    // remove the unnecessary properties after the animation gets completed
     window.setTimeout( () => {
       target.style.removeProperty('height');
       target.style.removeProperty('overflow');
@@ -127,7 +133,10 @@ let slideUp = (target, duration=500) => {
       target.style.removeProperty('transition-property');
     }, duration);
   }
-  let slideToggle = (target, duration = 500) => {
+  // And that was our slideDown function. Pretty much like the slideUp.
+
+// The logic is pretty simple. If the target is hidden i.e. if its display is set to none, then do slideDown. Else slide it up.
+let slideToggle = (target, duration = 1000) => {
     if (window.getComputedStyle(target).display === 'none') {
       return slideDown(target, duration);
     } else {
@@ -136,7 +145,7 @@ let slideUp = (target, duration=500) => {
   }
 //Animation trigger 
   document.getElementById("trigger").addEventListener('click', function() {
-       slideToggle(document.getElementById("target"), 200);
+       slideToggle(document.getElementById("target"), 1000);
 });
    </script>
 </body>
