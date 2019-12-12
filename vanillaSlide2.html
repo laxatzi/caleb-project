@@ -6,26 +6,20 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Slider Built with Vanilla JS</title>
    <style>
-       .banner {
-          width: 50%;
-       }
+    
    </style>
 </head>
 <body>
-   <div class="banner" data-height="600" data-width="50%" data-slide-speed="900" data-autoslide="5000">
-      <!-- list of images -->
-      <img src="img/nestos.jpg" alt="picture of nestos river" class="slider">
-      <img src="img/papigo.jpg" alt="picture of papigo mountain" class="slider">
-      <img src="img/plakidas-dark.jpg" alt="picture of plakidas bridge" class="slider">
-      <!-- slider buttons -->
-      <div class="previous" data-previous-cursor="img/left.png"></div>
-      <div class="next" data-next-cursor="img/right.png"></div>
-      <!-- slider links -->
-      <div class="slider_links">
-         <a href="nestos"></a>
-         <a href="papigo"></a>
-         <a href="plakidas"></a>
-      </div>
+   <div class="slide_wrap">
+      <div class="slide_show">
+         <div class="slide_entry">
+            <div class="slide_content"></div>
+         </div> <!-- end of slide_entry -->
+         <ul class="slide_nav">
+            <li class="previous"><<</li>
+            <li class="next">>></li>
+         </ul> <!-- end of slide_nav unordered list -->
+      </div> <!-- end of slide_show -->
    </div>
 </body>
 </html>
