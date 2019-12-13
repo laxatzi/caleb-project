@@ -80,11 +80,11 @@
          }
 
          /* pull our navigation out of the slider container to avoid z-index issues */
-         .prev {
-            margin-left: -10px;
+         #prev {
+            margin-left: -20px;
          }
-         .next {
-            margin-right: -10px;
+         #next {
+            margin-right: -20px;
          }
    </style>
 </head>
@@ -102,15 +102,16 @@
             <div class="slide_content">
                <h2>Mixed Content</h2>
                <img src="img/papigo.jpg" alt="image of Papigo mountain">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id repudiandae magnam amet architecto, aliquam unde, fugit in optio, vitae natus debitis minima tempore adipisci placeat esse quasi ullam incidunt a et sit suscipit, impedit nobis.</p>
+              <p>2Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id repudiandae magnam amet architecto, aliquam unde, fugit in optio, vitae natus debitis minima tempore adipisci placeat esse quasi ullam incidunt a et sit suscipit, impedit nobis.</p>
             </div>
          </div> <!-- end of slide_entry -->
-         <ul class="slide_nav">
-            <li id="prev"><ion-icon name="arrow-dropleft-circle"></ion-icon></li>
-            <li id="next"><ion-icon name="arrow-dropright-circle"></ion-icon></li>
-         </ul> <!-- end of slide_nav unordered list -->
+
       </div> <!-- end of slide_show -->
-   </div>
+      <ul class="slide_nav">
+         <li id="prev"><ion-icon name="arrow-dropleft-circle"></ion-icon></li>
+         <li id="next"><ion-icon name="arrow-dropright-circle"></ion-icon></li>
+      </ul> <!-- end of slide_nav unordered list -->
+   </div> <!-- end of slide_wrap -->
    <script src="vanillaSlide2.js"></script>
 </body>
 </html>
