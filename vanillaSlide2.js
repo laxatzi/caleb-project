@@ -22,7 +22,7 @@ if(slide_show != null){
          window.addEventListener('resize', function(){ // if browser resizes
             resizedSlideHeight = slides[currentSlide].clientHeight; // get current slide height
             slide_show.style.height = resizedSlideHeight + "px"; // update height of slideshow
-         })
+         });
      }
 
 // ad navigational functions

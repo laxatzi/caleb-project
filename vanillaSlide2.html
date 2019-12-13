@@ -5,87 +5,9 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Slider Built with Vanilla JS</title>
+   <link rel="stylesheet" href="vanillaSlide2.css">
    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
-
-   <style>
-      body {
-          font-family:'Open Sans', sans-serif;
-         }
-
-      h2 {
-          font-weight:700;
-          font-size:22px;
-          margin-bottom:15px;
-      }
-
-      p {
-          font-size:1.1em;
-          line-height:1.3em;
-      }
-       img {
-         height: 400px;
-         margin: 0 auto;
-         padding: 0;
-      } 
-     .slide_wrap {  /*class that contains the main slider */
-          position: relative;
-          max-width: 1000px;
-          margin: 0 auto;
-          transition: 300ms;
-     }
-     .slide_show {
-        position: relative; /* ensure that we can adjust z-index or position elements absolutely */
-        z-index: 1;
-     }
-         .slide_entry {
-            position: absolute; /* set all slides to position absolute so they will stack on top of each other, thus hide one from the other*/
-            top: 0;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            transition: 300ms;
-            text-align: center;
-            opacity: 0;
-            visibility: hidden;
-            padding: 20px 5%;
-            z-index: 2;
-         }
-         /* We use the .active sibling class to transition the slides in and out */
-         .slide_entry.active {
-            opacity: 1;
-            visibility: visible;
-         }
-
-         /* set up left and right navigation */
-         .slide_nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            list-style: none;
-            padding: 0; 
-            z-index: 0;
-         }
-         .slide_nav li {
-            font-size: 50px;
-            color: rgb(70, 69, 69);
-            cursor: pointer;
-         }
-
-         /* pull our navigation out of the slider container to avoid z-index issues */
-         #prev {
-            margin-left: 40px;
-         }
-         #next {
-            margin-right: 40px;
-         }
-   </style>
 </head>
 <body>
    <div class="slide_wrap">
@@ -106,10 +28,10 @@
          </div> <!-- end of slide_entry -->
 
       </div> <!-- end of slide_show -->
-      <ul class="slide_nav">
-         <li ><ion-icon name="arrow-dropleft-circle" id="prev"></ion-icon></li>
-         <li ><ion-icon name="arrow-dropright-circle" id="next"></ion-icon></li>
-      </ul> <!-- end of slide_nav unordered list -->
+      <div class="slide_nav">
+         <a id="prev"><ion-icon name="arrow-dropleft-circle" ></ion-icon></a>
+         <a id="next"><ion-icon name="arrow-dropright-circle"></ion-icon></a>
+      </div> <!-- end of slide_nav unordered list -->
    </div> <!-- end of slide_wrap -->
    <script src="vanillaSlide2.js"></script>
 </body>
