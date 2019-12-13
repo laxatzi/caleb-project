@@ -10,7 +10,7 @@ if(slideWrap != null){
 
      // let's activate the first slide on page load and set the height of that slide to the slideshow itself
      slides[0].classList.add('active');
-     slideWrap.style.height = initialHeight + "px";
+     slideWrap.style.height = initHeight + "px";
 
      // next/prev functionality 
      function slideNavigation(n) { 
@@ -42,7 +42,7 @@ if(slideWrap != null){
        }
  }
        // Hook up the specific html elements to the functions
-       slideHandlers.nextSlide(".next");
-       slideHandlers.prevSlide(".prev");
+       slideHandlers.nextSlide("#next");
+       slideHandlers.prevSlide("#prev");
 }
 
