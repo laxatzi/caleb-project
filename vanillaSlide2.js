@@ -24,5 +24,15 @@ if(slideWrap != null){
             slideWrap.style.height = resizedSlideHeight + "px"; // update height of slideshow
          })
      }
+
+// ad navigational functions
+   function nextSlide(e) {
+      slideNavigation(currentSlide + 1); // add one to index ...thus move to the next
+   }
+   function prevSlide(e){
+      slideNavigation(currentSlide -1); // remove one from the index... thus move to prev
+   }
+
+   
 }
 
