@@ -1,6 +1,6 @@
-const slideWrap = document.querySelector(".slide_wrap");
+const slide_show = document.querySelector(".slide_wrap");
 //make sure we don't run this script if the slideshow is not present...This is something we should always be doing when coding: preparing for the worst case scenario.
-if(slideWrap != null){
+if(slide_show != null){
    // Setting up our variables
      let slides = document.querySelectorAll(".slide_entry"); // grab all files
      let slideCount = slides.length; // count number of slides in slider
@@ -10,7 +10,7 @@ if(slideWrap != null){
 
      // let's activate the first slide on page load and set the height of that slide to the slideshow itself
      slides[0].classList.add('active');
-     slideWrap.style.height = initHeight + "px";
+     slide_show.style.height = initHeight + "px";
 
      // next/prev functionality 
      function slideNavigation(n) { 
@@ -18,10 +18,10 @@ if(slideWrap != null){
          currentSlide = (n + slideCount) % slideCount; // determine current slide
          slides[currentSlide].className = 'slide_entry active'; // if its current slide add active class
          slideHeight = slides[currentSlide].clientHeight; // get the height of the current slide
-         slideWrap.style.height = slideHeight + "px"; // set the height of the slides
+         slide_show.style.height = slideHeight + "px"; // set the height of the slides
          window.addEventListener('resize', function(){ // if browser resizes
             resizedSlideHeight = slides[currentSlide].clientHeight; // get current slide height
-            slideWrap.style.height = resizedSlideHeight + "px"; // update height of slideshow
+            slide_show.style.height = resizedSlideHeight + "px"; // update height of slideshow
          })
      }
 
