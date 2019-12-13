@@ -24,7 +24,6 @@
           line-height:1.3em;
       }
        img {
-         width: 1000px;
          height: 400px;
          margin: 0 auto;
          padding: 0;
@@ -74,17 +73,17 @@
             z-index: 0;
          }
          .slide_nav li {
-            font-size: 25px;
-            color: #ccc;
+            font-size: 50px;
+            color: rgb(70, 69, 69);
             cursor: pointer;
          }
 
          /* pull our navigation out of the slider container to avoid z-index issues */
          #prev {
-            margin-left: -20px;
+            margin-left: 40px;
          }
          #next {
-            margin-right: -20px;
+            margin-right: 40px;
          }
    </style>
 </head>
@@ -108,8 +107,8 @@
 
       </div> <!-- end of slide_show -->
       <ul class="slide_nav">
-         <li id="prev"><ion-icon name="arrow-dropleft-circle"></ion-icon></li>
-         <li id="next"><ion-icon name="arrow-dropright-circle"></ion-icon></li>
+         <li ><ion-icon name="arrow-dropleft-circle" id="prev"></ion-icon></li>
+         <li ><ion-icon name="arrow-dropright-circle" id="next"></ion-icon></li>
       </ul> <!-- end of slide_nav unordered list -->
    </div> <!-- end of slide_wrap -->
    <script src="vanillaSlide2.js"></script>
