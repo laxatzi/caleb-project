@@ -32,7 +32,17 @@ if(slideWrap != null){
    function prevSlide(e){
       slideNavigation(currentSlide -1); // remove one from the index... thus move to prev
    }
-
-   
+// hook up our handlers and their respective elements so they can be clicked, and have the slideshow transition to the right slide
+    const slideHandlers = {
+       nextSlide: function(element){ // make it abstract to accept any html element
+          document.querySelector(element).addEventListener('click', nextSlide); // hook up the selector
+       },
+       prevSlide: function(element){
+          document.querySelector(element).addEventListener('click', prevSlide); 
+       }
+ }
+       // Hook up the specific html elements to the functions
+       slideHandlers.nextSlide(".next");
+       slideHandlers.prevSlide(".prev");
 }
 
