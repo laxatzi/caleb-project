@@ -265,5 +265,19 @@
 //Event listening for dynamically added elements aka... on() method
    //jQuery’s .on() method enables you to work with “live” event handlers, where you listen to events on objects that get dynamically added to the DOM.
 
+   // With jQuery
+      // Handle click events .search-result elements, 
+      // even when they're added to the DOM programmatically
+      /*
+      $(".search-container").on("click", ".search-result", handleClick);
+      */
+
+    // Without jQuery
+      // Create and add an element to the DOM
+      var searchElement = document.createElement("div");
+      document.querySelector(".search-container").appendChild(searchElement);
+      // Add an event listener to the element
+      searchElement.addEventListener("click", handleClick);
+
    
     
