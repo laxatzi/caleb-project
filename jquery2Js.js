@@ -262,3 +262,8 @@
     box.parentElement;
 
   
+//Event listening for dynamically added elements aka... on() method
+   //jQuery’s .on() method enables you to work with “live” event handlers, where you listen to events on objects that get dynamically added to the DOM.
+
+   
+    
