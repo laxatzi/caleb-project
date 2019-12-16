@@ -199,10 +199,11 @@
 //Classes
     // with jQuery
     // Add, remove, toggle the 'focus' class
+    /*
     $('.box').addClass('focus');
     $('.box').removeClass('focus');
     $('.box').toggleClass('focus');
-
+    */
     // WITHOUT jQuery
     const box = document.querySelector('.box');
     box.classList.add('focus');
@@ -214,6 +215,35 @@
    box.classList.add('focus', 'highlighted');
    box.classList.remove('focus', 'highlighted');
 
-   //Checking if an element has a class
+//Checking if an element has a class
 
+    // With jQuery
+        /* Check if .box has a class of "focus", and do something
+        if ($(".box").hasClass("focus")) {
+          // Do something...
+        }
+       */
+    // Without jQuery
+      // Check if .box has a class of "focus", and do something
+      if (document.querySelector(".box").classList.contains("focus")) {
+        // Do something...
+      }
   
+//Document ready
+
+    // With jQuery
+      /*
+        $(document).ready(function() { 
+           Do things after DOM has fully loaded 
+        });
+      */
+    // Without jQuery
+        // Define a convenience method and use it
+        const ready = (callback) => {
+          if (document.readyState != "loading") callback();
+          else document.addEventListener("DOMContentLoaded", callback);
+        }
+
+        ready(() => { 
+          /* Do things after DOM has fully loaded */ 
+        });
