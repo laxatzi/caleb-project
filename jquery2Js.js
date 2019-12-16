@@ -247,3 +247,18 @@
         ready(() => { 
           /* Do things after DOM has fully loaded */ 
         });
+
+  //Traversing the DOM 
+   // With jQuery
+   /*
+        $('.box').next();
+        $('.box').prev();
+        $('.box').parent();
+   */
+  // without jQuery
+    const box = document.querySelector('.box');
+    box.nextElementSibling;
+    box.previousElementSibling;
+    box.parentElement;
+
+  
