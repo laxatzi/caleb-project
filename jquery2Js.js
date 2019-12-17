@@ -277,10 +277,24 @@
       target.insertAdjacentElement('afterend', element);
   
     //CLONE
+
     // With jQuery
     /*
-        
+        $(element).clone();
     */
+    // Without jQuery
+      element.cloneNode(true);
+    
+    //EMPTY
+    
+    // With jQuery
+    /*
+        $(element).empty();
+    */
+   // Without jQuery
+   while(element.firstChild)
+    element.removeChild(element.firstChild);
+    
 //Event listening for dynamically added elements aka... on() method
    //jQuery’s .on() method enables you to work with “live” event handlers, where you listen to events on objects that get dynamically added to the DOM.
 
