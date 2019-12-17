@@ -249,19 +249,34 @@
         });
 
   //Traversing the DOM 
-   // With jQuery
-   /*
-        $('.box').next();
-        $('.box').prev();
-        $('.box').parent();
-   */
-  // without jQuery
-    const box = document.querySelector('.box');
-    box.nextElementSibling;
-    box.previousElementSibling;
-    box.parentElement;
+    // With jQuery
+    /*
+          $('.box').next();
+          $('.box').prev();
+          $('.box').parent();
+    */
+    // without jQuery
+      const box = document.querySelector('.box');
+      box.nextElementSibling;
+      box.previousElementSibling;
+      box.parentElement;
+    
 
+    // AFTER
+
+    //Insert content, specified by the parameter, after each element in the set of matched elements.
+    // With jQuery
+    /*
+        $(target).after(element);
+        e.g $( ".inner" ).after( "<p>Test</p>" );
+             <div class="inner">Goodbye</div>
+             <p>Test</p> (NEW CODE)
+
+    */
+    // Without jQuery
+      target.insertAdjacentElement('afterend', element);
   
+      
 //Event listening for dynamically added elements aka... on() method
    //jQuery’s .on() method enables you to work with “live” event handlers, where you listen to events on objects that get dynamically added to the DOM.
 
@@ -278,6 +293,8 @@
       document.querySelector(".search-container").appendChild(searchElement);
       // Add an event listener to the element
       searchElement.addEventListener("click", handleClick);
+
+
 
   // Attributes
      // Get Attributes
@@ -307,4 +324,4 @@
 
     // Without jQuery
       element.setAttribute('tabindex', 3);
-    
+
