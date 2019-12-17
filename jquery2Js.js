@@ -264,38 +264,48 @@
 
     // AFTER
 
-    //Insert content, specified by the parameter, after each element in the set of matched elements.
-    // With jQuery
-    /*
-        $(target).after(element);
-        e.g $( ".inner" ).after( "<p>Test</p>" );
-             <div class="inner">Goodbye</div>
-             <p>Test</p> (NEW CODE)
+      //Insert content, specified by the parameter, after each element in the set of matched elements.
+      // With jQuery
+      /*
+          $(target).after(element);
+          e.g $( ".inner" ).after( "<p>Test</p>" );
+              <div class="inner">Goodbye</div>
+              <p>Test</p> (NEW CODE)
 
-    */
-    // Without jQuery
-      target.insertAdjacentElement('afterend', element);
+      */
+      // Without jQuery
+        target.insertAdjacentElement('afterend', element);
   
     //CLONE
 
-    // With jQuery
-    /*
-        $(element).clone();
-    */
-    // Without jQuery
-      element.cloneNode(true);
+      // With jQuery
+      /*
+          $(element).clone();
+      */
+      // Without jQuery
+        element.cloneNode(true);
     
     //EMPTY
     
-    // With jQuery
-    /*
-        $(element).empty();
-    */
-   // Without jQuery
-   while(element.firstChild)
-    element.removeChild(element.firstChild);
+      // With jQuery
+      /*
+          $(element).empty();
+      */
+    // Without jQuery
+    while(element.firstChild)
+      element.removeChild(element.firstChild);
     
-    
+    // PREPEND 
+      // Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.
+      // With jQuery
+      /*
+      $(parent).prepend(element);
+      */
+      // Without jQuery
+     node.insertBefore(newnode, existingnode)
+
+
+
 //Event listening for dynamically added elements aka... on() method
    //jQuery’s .on() method enables you to work with “live” event handlers, where you listen to events on objects that get dynamically added to the DOM.
 
