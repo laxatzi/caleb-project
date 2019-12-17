@@ -279,5 +279,32 @@
       // Add an event listener to the element
       searchElement.addEventListener("click", handleClick);
 
-   
+  // Attributes
+     // Get Attributes
+
+       // With jQuery
+       /*
+       $(element).attr('tabindex');
+       */
+
+       // Without jQuery
+       element.getAttribute('tabindex');
+
+    //Remove Attributes
+      // With jQuery
+      /*
+        $(element).removeAttr('tabindex');
+      */
+
+      // Without jQuery
+      element.removeAttribute('tabindex');
+
+  // Set Attributes
+     // With jQuery
+     /*
+      $(element).attr('tabindex', 3);
+     */
+
+    // Without jQuery
+      element.setAttribute('tabindex', 3);
     
