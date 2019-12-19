@@ -27,7 +27,7 @@ alert("Game is over, you scored "+score+" points!");
   function play(quizGame){ // we insert the quizGame arr as an argument
      // main game loop
      for(var i=0; i<quizGame.length; i++){
-      var question = prompt(quizGame[i][0]);
+      var question = quizGame[i][0];
       var answer = ask(question);
       check(answer);
       
@@ -36,3 +36,19 @@ alert("Game is over, you scored "+score+" points!");
    gameOver();
   }
 
+  function ask(question){
+     return prompt(question);
+  }
+
+  function check(answer){
+   if(answer === quizGame[i][1]){
+      alert("Bravo, let's move on to the next one!");
+      score++;
+   }else{
+      alert("Sorry, your answer is wrong!");
+   }
+  }
+
+ function gameOver(){
+   alert("Game is over, you scored "+score+" points!");
+}
