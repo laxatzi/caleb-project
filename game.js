@@ -19,11 +19,12 @@ for(var i=0; i<quizGame.length; i++){
 }
 alert("Game is over, you scored "+score+" points!");
 */
+
 // Refactoring the above code
   // Refactoring is the process of improving the code's structure and maintainability without changing it's behaviour
 
   // We create a main function that contains all the steps of playing the game
-
+ 
   function play(quizGame){ // we insert the quizGame arr as an argument
      // main game loop
      for(var i=0; i<quizGame.length; i++){
@@ -32,23 +33,24 @@ alert("Game is over, you scored "+score+" points!");
       check(answer);
       
    }
+   function ask(question){
+      return prompt(question);
+   }
+ 
+   function check(answer){
+    if(answer === quizGame[i][1]){
+       alert("Bravo. You earn one point!");
+       score++;
+    }else{
+       alert("Sorry, your answer is wrong!");
+    }
+   }
+ 
+  function gameOver(){
+    alert("Game is over, you scored "+score+" points!");
+ }
    // end of main loop
    gameOver();
   }
 
-  function ask(question){
-     return prompt(question);
-  }
-
-  function check(answer){
-   if(answer === quizGame[i][1]){
-      alert("Bravo, let's move on to the next one!");
-      score++;
-   }else{
-      alert("Sorry, your answer is wrong!");
-   }
-  }
-
- function gameOver(){
-   alert("Game is over, you scored "+score+" points!");
-}
+play(quizGame);
