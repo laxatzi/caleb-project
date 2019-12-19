@@ -5,7 +5,8 @@ var quizGame =  [
 ];
 
 var score = 0;
-
+/*
+   OLD CODE
 for(var i=0; i<quizGame.length; i++){
    var answer = prompt(quizGame[i][0]);
 
@@ -17,3 +18,21 @@ for(var i=0; i<quizGame.length; i++){
    }
 }
 alert("Game is over, you scored "+score+" points!");
+*/
+// Refactoring the above code
+  // Refactoring is the process of improving the code's structure and maintainability without changing it's behaviour
+
+  // We create a main function that contains all the steps of playing the game
+
+  function play(quizGame){ // we insert the quizGame arr as an argument
+     // main game loop
+     for(var i=0; i<quizGame.length; i++){
+      var question = prompt(quizGame[i][0]);
+      var answer = ask(question);
+      check(answer);
+      
+   }
+   // end of main loop
+   gameOver();
+  }
+
