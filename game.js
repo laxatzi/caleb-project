@@ -1,27 +1,14 @@
-// var quizGame =  [
-//    ["How many times was PAOK nominated 'championship winner'?", "3"],
-//    ["Who is team's captain as of 2019?", "Andre Vierihnia"],
-//    ["Where is PAOK's home stadium located?", "Toumba, Thessaloniki"]
-// ];
-
-// var score = 0;
-/*
-   OLD CODE
-for(var i=0; i<quizGame.length; i++){
-   var answer = prompt(quizGame[i][0]);
-
-   if(answer === quizGame[i][1]){
-      alert("Bravo, let's move on to the next one!");
-      score++;
-   }else{
-      alert("Sorry, your answer is wrong!");
+//function to update elements on the page
+function update(element, content, klass){ // first param is the element to be updated,
+                                          // second param is the content that is to be updated with
+                                          // third param is an optional class 
+   var p = element.firstChild || document.createElement("p"); // if element already has a first child assign it to p variable. If not already, create one.
+   p.textContent = content; // Add the second argument as the content of the element
+   element.appendChild(p); // insert p inside the element
+   if(klass){ // if klass argument exists use to p 
+     p.className = klass;
    }
 }
-alert("Game is over, you scored "+score+" points!");
-*/
-
-// Refactoring the above code
-  // Refactoring is the process of improving the code's structure and maintainability without changing it's behaviour
 
  var quizGame = {
     "name": "Super Hero Name quiz game",
@@ -43,10 +30,17 @@ alert("Game is over, you scored "+score+" points!");
     ]
  }
  var score = 0;
+  // DOM references
+  var $question = document.getElementById('question');
+  var $feedback = document.getElementById('feedback');
+  var $score = document.getElementById('score');
+  
 
   // A main function that contains all the steps of playing the game
   function play(quizGame){ // we insert the quizGame arr as an argument
      // main game loop
+     update($score, score); // display score into header
+
      for(var i=0; i<quizGame.questions.length; i++){
       var question = quizGame.questions[i].question;
       var answer = ask(question);
@@ -54,21 +48,23 @@ alert("Game is over, you scored "+score+" points!");
       
    }
    // my functions
-   function ask(question){
-      return prompt(quizGame.question + question);
+   function ask(question){ // the question is displayed into the html instead of the dialogue
+      update($question, quizGame.question + question);
+      return prompt("Enter your answer:");
    }
  
    function check(answer){
     if(answer === quizGame.questions[i].answer){
-       alert("Bravo. You earn one point!");
+       update($feedback,"Bravo. You earn one point!", "right" ); // add a 3rd arg to style as we wish
        score++;
+       update($score, score);
     }else{
-       alert("Sorry, your answer is wrong!");
+       update($feedback, "Sorry, your answer is wrong!", "wrong"); // add a 3rd arg to style as we wish
     }
    }
  
   function gameOver(){
-    alert("Game is over, you scored "+score+" points!");
+     update($question, "Game is over, you scored "+score+" points!");
  }
    
    gameOver();
