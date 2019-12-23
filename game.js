@@ -23,21 +23,31 @@ alert("Game is over, you scored "+score+" points!");
 // Refactoring the above code
   // Refactoring is the process of improving the code's structure and maintainability without changing it's behaviour
 
-  // We create a main function that contains all the steps of playing the game
  var quizGame = {
     "name": "Super Hero Name quiz game",
     "description": "How many super heroes can you name?",
     "question": "What is the real name of ",
     "questions": [
-       {"question": "Superman", "answer", "Clark Kent"},
-       {"question" : "Batman", "answer", "Bruce Wayne"},
-       {"question": "Wonder Woman", "answer", "Dianna Pierce"}
+       {
+         "question": "Superman",
+         "answer" : "Clark Kent"
+      },
+       {
+         "question" : "Batman",
+         "answer":"Bruce Wayne"
+      },
+      {
+         "question": "Wonder Woman",
+         "answer": "Dianna Pierce"
+      }
     ]
  }
+ var score = 0;
 
+  // A main function that contains all the steps of playing the game
   function play(quizGame){ // we insert the quizGame arr as an argument
      // main game loop
-     for(var i=0; i<quizGame.length; i++){
+     for(var i=0; i<quizGame.questions.length; i++){
       var question = quizGame.questions[i].question;
       var answer = ask(question);
       check(answer);
@@ -45,7 +55,7 @@ alert("Game is over, you scored "+score+" points!");
    }
    // my functions
    function ask(question){
-      return prompt(quiz.question + question);
+      return prompt(quizGame.question + question);
    }
  
    function check(answer){
