@@ -25,7 +25,7 @@ var quizGame = {
 
 /// My Functions ///
 
-      //function to update elements on the page
+   //function to update elements on the page
       function update(element, content, klass){ // first param is the element to be updated,
                                                 // second param is the content that is to be updated with
                                                 // third param is an optional class 
@@ -36,29 +36,30 @@ var quizGame = {
          p.className = klass;
          }
       }
-
-
-      var score = 0;
-
-      
-
-      // A main function that contains all the steps of playing the game
-      function play(quizGame){ // we insert the quizGame arr as an argument
+   play(quizGame); // execute main function 
+  
+// Function Definitions
+   // A main function that contains all the steps of playing the game
+   function play(quizGame){ // we insert the quizGame arr as an argument
          // main game loop
+         var score = 0;  // init score
          update($score, score); // display score into header
-
+        // Main game loop
          for(var i=0; i<quizGame.questions.length; i++){
             var question = quizGame.questions[i].question;
             var answer = ask(question);
             check(answer);
          }
-      
-         // my functions
+         // end of main loop
+         gameOver();
+
+   // Nested Functions
+      // Ask
          function ask(question){ // the question is displayed into the html instead of the dialogue
-            update($question, "Whats up duck?", "question");
-            //return prompt("Enter your answer:");
+            update($question, quizGame.question + question);
+            return prompt("Enter your answer:");
          }
-      
+      // Check
          function check(answer){
          if(answer === quizGame.questions[i].answer){
             update($feedback,"Bravo. You earn one point!", "right" ); // add a 3rd arg to style as we wish
@@ -67,13 +68,12 @@ var quizGame = {
          }else{
             update($feedback, "Sorry, your answer is wrong!", "wrong"); // add a 3rd arg to style as we wish
          }
-         }
-      
+       }
+     // Game Over
       function gameOver(){
+         // inform player that game is finished and update them what the score is 
          update($question, "Game is over, you scored "+score+" points!");
          }
          
-         gameOver();
       } // and play function
 
-      play(quizGame); // execute main function 
