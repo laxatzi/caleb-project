@@ -7,6 +7,10 @@
    <title>Game with javascript</title>
 </head>
 <style>
+    * {
+       margin: 0;
+       padding: 0;
+    }
     body {
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
        font-size: 10px;
@@ -23,13 +27,23 @@
        color: fuchsia;
        text-align: center;
     }
+    .right {
+       background-color: #090;
+       border: 2px solid #060;
+       color: #fff;
+    }
+    .wrong {
+       background-color: #c00;
+       border: 2px solid #900;
+       color: #fff;
+    }
 </style>
 <body>
    <header>
       <h1>Javascript Game</h1>
       <p>Score: <strong id="score">0</strong></p>
    </header>
-   <section id="question"></section>
+   <section id="questionSection"></section><br>
    <section id="feedback"></section>
 </body>
 <script src="game.js"></script>
