@@ -22,7 +22,7 @@ var quizGame = {
   var $question = document.getElementById('questionSection');
   var $feedback = document.getElementById('feedback');
   var $score = document.getElementById('score');
-
+  var $start = document.getElementById('button');
 /// My Functions ///
 
    //function to update elements on the page
@@ -36,7 +36,8 @@ var quizGame = {
          p.className = klass;
          }
       }
-   play(quizGame); // execute main function 
+  // play(quizGame);  execute main function  =>
+     $start.addEventListener('click',function(){ play(quizGame) },false); // we add a click event listener to the button that will start the game when button is clicked.
   
 // Function Definitions
    // A main function that contains all the steps of playing the game
@@ -77,3 +78,4 @@ var quizGame = {
          
       } // and play function
 
+    
