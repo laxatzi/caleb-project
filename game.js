@@ -50,15 +50,17 @@ var quizGame = {
 // Function Definitions
    // A main function that contains all the steps of playing the game
    function play(quizGame){ // we insert the quizGame arr as an argument
-        // add event listener to form for checking when it's been submitted
+      var score = 0;  // init score
+      update($score, score); // display score into header 
+      // hide button and show form
+       hide($start);
+       show($form);
+      // add event listener to form for checking when it's been submitted
          $form.addEventListener('submit', function(evt){
             evt.preventDefault();
             check($form[0].value);
          }, false);
 
-         var score = 0;  // init score
-         update($score, score); // display score into header
-    
       var i = 0; // keep track of how many questions have been asked
       chooseQuestion();
          gameOver();
