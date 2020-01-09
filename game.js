@@ -37,23 +37,29 @@ var quizGame = {
          p.className = klass;
          }
       }
+      function hide(el){
+         el.style.display = "none";
+      }
+      function show(el){
+         el.style.display = "block";
+      }
   // play(quizGame);  execute main function  =>
      $start.addEventListener('click',function(){ play(quizGame) },false); // we add a click event listener to the button that will start the game when button is clicked.
-  
+  // hide the form at the start of the game
+    hide($form);
 // Function Definitions
    // A main function that contains all the steps of playing the game
    function play(quizGame){ // we insert the quizGame arr as an argument
-         // main game loop
+        // add event listener to form for checking when it's been submitted
+         $form.addEventListener('submit', function(evt){
+            evt.preventDefault();
+            check($form[0].value);
+         }, false);
+
          var score = 0;  // init score
          update($score, score); // display score into header
-      //   // Main game loop
-      //    for(var i=0; i<quizGame.questions.length; i++){
-      //       var question = quizGame.questions[i].question;
-      //       var answer = ask(question);
-      //       check(answer);
-      //    }
-      //    // end of main loop
-      var i = 0;
+    
+      var i = 0; // keep track of how many questions have been asked
       chooseQuestion();
          gameOver();
 
@@ -66,7 +72,8 @@ var quizGame = {
       // Ask
          function ask(question){ // the question is displayed into the html instead of the dialogue
             update($question, quizGame.question + question);
-            return prompt("Enter your answer:");
+            $form[0].value = ""; // remove prev answer
+            $form[0].focus();    // give focus once more
          }
       // Check
          function check(answer){
@@ -76,6 +83,12 @@ var quizGame = {
             update($score, score);
          }else{
             update($feedback, "Sorry, your answer is wrong!", "wrong"); // add a 3rd arg to style as we wish
+         }
+         i++;
+         if(i === quizGame.questions.length){
+            gameOver();
+         }else{
+            chooseQuestion();
          }
        }
      // Game Over
