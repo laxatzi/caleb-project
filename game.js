@@ -4,15 +4,15 @@ var quizGame = {
    "question": "What is the real name of ",
    "questions": [
       {
-        "question": "Superman",
+        "question": "Superman?",
         "answer" : "Clark Kent"
      },
       {
-        "question" : "Batman",
+        "question" : "Batman?",
         "answer":"Bruce Wayne"
      },
      {
-        "question": "Wonder Woman",
+        "question": "Wonder Woman?",
         "answer": "Dianna Pierce"
      }
    ]
@@ -24,6 +24,7 @@ var quizGame = {
   var $score = document.getElementById('score');
   var $start = document.getElementById('button');
   var $form = document.getElementById('answer');
+
 /// My Functions ///
 
    //function to update elements on the page
@@ -43,11 +44,15 @@ var quizGame = {
       function show(el){
          el.style.display = "block";
       }
+
   // play(quizGame);  execute main function  =>
      $start.addEventListener('click',function(){ play(quizGame) },false); // we add a click event listener to the button that will start the game when button is clicked.
+
   // hide the form at the start of the game
     hide($form);
+
 // Function Definitions
+
    // A main function that contains all the steps of playing the game
    function play(quizGame){ // we insert the quizGame arr as an argument
       var score = 0;  // init score
@@ -63,7 +68,6 @@ var quizGame = {
 
       var i = 0; // keep track of how many questions have been asked
       chooseQuestion();
-         gameOver();
 
    // Nested Functions
        // choose question
@@ -97,6 +101,8 @@ var quizGame = {
       function gameOver(){
          // inform player that game is finished and update them what the score is 
          update($question, "Game is over, you scored "+score+" points!");
+         hide($form);
+         show($start);
          }
          
       } // and play function
