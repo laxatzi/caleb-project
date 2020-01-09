@@ -84,7 +84,7 @@ var quizGame = {
       // Check
          function check(answer){
          if(answer === quizGame.questions[i].answer){
-            update($feedback,"Bravo. You earn one point!", "right" ); // add a 3rd arg to style as we wish
+            update($feedback,"Bravo. You earn one point!", "correct" ); // add a 3rd arg to style as we wish
             score++;
             update($score, score);
          }else{
@@ -100,8 +100,9 @@ var quizGame = {
      // Game Over
       function gameOver(){
          // inform player that game is finished and update them what the score is 
-         update($question, "Game is over, you scored "+score+" points!");
+         update($question, "Game is over, you scored "+score+" points in total!");
          hide($form);
+         hide($feedback);
          show($start);
          }
          
