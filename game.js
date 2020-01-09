@@ -23,6 +23,7 @@ var quizGame = {
   var $feedback = document.getElementById('feedback');
   var $score = document.getElementById('score');
   var $start = document.getElementById('button');
+  var $form = document.getElementById('answer');
 /// My Functions ///
 
    //function to update elements on the page
@@ -45,16 +46,23 @@ var quizGame = {
          // main game loop
          var score = 0;  // init score
          update($score, score); // display score into header
-        // Main game loop
-         for(var i=0; i<quizGame.questions.length; i++){
-            var question = quizGame.questions[i].question;
-            var answer = ask(question);
-            check(answer);
-         }
-         // end of main loop
+      //   // Main game loop
+      //    for(var i=0; i<quizGame.questions.length; i++){
+      //       var question = quizGame.questions[i].question;
+      //       var answer = ask(question);
+      //       check(answer);
+      //    }
+      //    // end of main loop
+      var i = 0;
+      chooseQuestion();
          gameOver();
 
    // Nested Functions
+       // choose question
+       function chooseQuestion(){
+          var question = quizGame.questions[i].question;
+          ask(question);
+       }
       // Ask
          function ask(question){ // the question is displayed into the html instead of the dialogue
             update($question, quizGame.question + question);
