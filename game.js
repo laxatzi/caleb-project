@@ -24,7 +24,7 @@ var quizGame = {
   var $score = document.getElementById('score');
   var $start = document.getElementById('button');
   var $form = document.getElementById('answer');
-
+  var $timer = document.getElementById('timer');
 /// My Functions ///
 
    //function to update elements on the page
