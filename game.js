@@ -25,6 +25,7 @@ var quizGame = {
   var $start = document.getElementById('button');
   var $form = document.getElementById('answer');
   var $timer = document.getElementById('timer');
+  var $reloader = document.getElementById('reload');
 /// My Functions ///
 
    //function to update elements on the page
@@ -50,7 +51,8 @@ var quizGame = {
 
   // hide the form at the start of the game
     hide($form);
-
+  // hide reload button at the start of the game 
+    hide($reloader);
 // Function Definitions
 
    // A main function that contains all the steps of playing the game
@@ -118,9 +120,9 @@ var quizGame = {
          update($question, "Game is over, you scored "+score+" points in total!");
          hide($form);
          hide($feedback);
-         show($start);
          // remove the interval (countdown) when game has finished (otherwise it will continue counting down ad infinitum)
          window.clearInterval(interval);
+         show($reloader);
          }
          
       } // and play function
