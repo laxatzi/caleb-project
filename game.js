@@ -53,6 +53,12 @@ var quizGame = {
     hide($form);
   // hide reload button at the start of the game 
     hide($reloader);
+
+  //add event listener for reloading page when clicking again button
+   $reloader.addEventListener('click', function(){
+      location.reload();
+   })
+
 // Function Definitions
 
    // A main function that contains all the steps of playing the game
