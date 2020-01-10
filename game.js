@@ -55,17 +55,22 @@ var quizGame = {
 
    // A main function that contains all the steps of playing the game
    function play(quizGame){ // we insert the quizGame arr as an argument
+   //score
       var score = 0;  // init score
       update($score, score); // display score into header 
-      // hide button and show form
+   //timer
+      var time= 20; // init timer 
+      update($timer, time); //update time element by displaying remaining time
+      var interval = window.setInterval(countdown, 1000); //set interval
+   // hide button and show form
        hide($start);
        show($form);
-      // add event listener to form for checking when it's been submitted
+   // add event listener to form for checking when it's been submitted
          $form.addEventListener('submit', function(evt){
             evt.preventDefault();
             check($form[0].value);
          }, false);
-
+   
       var i = 0; // keep track of how many questions have been asked
       chooseQuestion();
 
@@ -97,13 +102,25 @@ var quizGame = {
             chooseQuestion();
          }
        }
-     // Game Over
+      
+       // countdown
+         function countdown(){
+            // decrease time by one
+            time--;
+            // update time displayer
+            update($timer, time);
+            // when timer reach 0 => game over
+            if(time<=0) gameOver();
+         }
+   // Game Over
       function gameOver(){
          // inform player that game is finished and update them what the score is 
          update($question, "Game is over, you scored "+score+" points in total!");
          hide($form);
          hide($feedback);
          show($start);
+         // remove the interval (countdown) when game has finished (otherwise it will continue counting down ad infinitum)
+         window.clearInterval(interval);
          }
          
       } // and play function
