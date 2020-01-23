@@ -132,5 +132,6 @@ var quizGame = {
          }
          
       } // and play function
+ 
 
-    
+
