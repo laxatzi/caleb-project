@@ -1,3 +1,9 @@
+(function(){
+// Wrapping all the code inside an immediately invoked function
+// now all variables are wrapped up within the scope of THIS anonymous function. So if this file is used in conjunction with another javascript file, there will be no problems with same name variables
+
+"use strict"; // strict mode ensures errors will be thrown rather than failing silently
+
 var quizGame = {
    "name": "Super Hero Name quiz game",
    "description": "How many super heroes can you name?",
@@ -134,4 +140,5 @@ var quizGame = {
       } // and play function
  
 
+   }()); // Wrapping all the code inside an immediately invoked function
 
