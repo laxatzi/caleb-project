@@ -88,13 +88,18 @@ var quizGame = {
             check($form[0].value);
          }, false);
    
-      var i = 0; // keep track of how many questions have been asked
+      var question; // the current question
       chooseQuestion();
 
    // Nested Functions
        // choose question
        function chooseQuestion(){
-          var question = quizGame.questions[i].question;
+          console.log("chooseQuestion() called");
+          var questions = quizGame.questions.filter(function(question) {
+             return question.asked === false; //return array containing only questions that haven't been asked yet
+          });
+          // set the current question
+          question = questions[random(questions.length - 1)]; // random is used to select a number between 1 and the length of this ,yet to asked questions, array.
           ask(question);
        }
       // Ask
