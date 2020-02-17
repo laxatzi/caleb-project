@@ -11,15 +11,18 @@ var quizGame = {
    "questions": [
       {
         "question": "Superman?",
-        "answer" : "Clark Kent"
+        "answer" : "Clark Kent",
+        "asked": false
      },
       {
         "question" : "Batman?",
-        "answer":"Bruce Wayne"
+        "answer":"Bruce Wayne",
+        "asked": false
      },
      {
         "question": "Wonder Woman?",
-        "answer": "Dianna Pierce"
+        "answer": "Dianna Pierce",
+        "asked": false
      }
    ]
 };
@@ -139,6 +142,18 @@ var quizGame = {
          
       } // and play function
  
+   // use random function to make questions appear at random
+     function random(a,b,callback){
+        if(b === undefined){
+            // if only one parameter is supplied, assume the lower limit is 1 and upper is a
+            b=a, a=1;
+        }
+        var result = Math.floor((b-a+1)*Math.random() + a);
+        if(typeof callback === "function"){
+           result = callback(result);
+        }
+        return result;
+     }
 
    }()); // Wrapping all the code inside an immediately invoked function
 
