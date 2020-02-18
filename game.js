@@ -104,40 +104,12 @@ var quizGame = {
        }
       // Ask
          function ask(question){ // the question is displayed into the html instead of the dialogue
-            console.log("ask() invoked");
-         // set the question.asked property to true so it is not asked again
-            question.asked = true;
-            update($question, quizGame.question + question.question+"?");
-            //clear the prev options
-            $form.innerHTML = "";
-         // create an array to put the different values in and also a button
-            var options = [], button;
-            var option1 = chooseOption();
-            options.push(option1.answer);
-            var option2 = chooseOption();
-            options.push(option2.answer);
-         // add the actual answer at a random place in the options array
-           options.splice(random(0,2),0,question.answer);
-         // loop through each option and display it as a button
-           options.forEach(function(name){
-            button = document.createElement("button");
-            button.value = name;
-            button.textContent = name;
-            $form.appendChild(button);
-           });
-         }
-    // Choose an option only once
-         function chooseOption() {
-            var option = quizGame.questions[random(quizGame.questions.length)-1];
-         // Check to see if the option is the current question or already one of the options, if it is then recursively call this function until it isn't 
-            if(option === question || options.indexOf(option.answer) !== -1){
-               return chooseOption();
-            }
-            return option;
+            update($question, quizGame.question + question);
+            $form[0].value = ""; // remove prev answer
+            $form[0].focus();    // give focus once more
          }
       // Check
          function check(answer){
-            
          if(answer === quizGame.questions[i].answer){
             update($feedback,"Bravo. You earn one point!", "correct" ); // add a 3rd arg to style as we wish
             score++;
