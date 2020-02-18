@@ -126,9 +126,18 @@ var quizGame = {
             $form.appendChild(button);
            });
          }
-
+    // Choose an option only once
+         function chooseOption() {
+            var option = quizGame.questions[random(quizGame.questions.length)-1];
+         // Check to see if the option is the current question or already one of the options, if it is then recursively call this function until it isn't 
+            if(option === question || options.indexOf(option.answer) !== -1){
+               return chooseOption();
+            }
+            return option;
+         }
       // Check
          function check(answer){
+            
          if(answer === quizGame.questions[i].answer){
             update($feedback,"Bravo. You earn one point!", "correct" ); // add a 3rd arg to style as we wish
             score++;
