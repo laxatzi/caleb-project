@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="game.css">
-   <title>Game with javascript</title>
 </head>
 <body>
-   <header>
-      <h1>Javascript Game</h1>
-      <p>Score: <strong id="score">0</strong></p>
-      <p id="timer"></p>
-   </header>
-   <section id="questionSection"></section><br>
-   <form action="#" id="answer">
-      <input type="text">
-      <button>Submit Answer</button>
-   </form>
-   <section id="feedback"></section>
-   <button id="button">Click when you are ready!</button>
-   <button id=reload>Play again!</button>
+  <header>
+    <h1>Quiz Ninja!</h1>
+    <p>Score: <strong id="score">0</strong></p>
+    <p id="timer"></p>
+    <link rel="stylesheet" href="game.css">
+  </header>
+
+  <section id="question"></section>
+  <form id="answer">
+  </form>
+  <section id="feedback"></section>
+  <button id="start">Click to Start</button>
+  <button id=reload>Play again!</button>
 </body>
-<script src="gameTest.js"></script>
+  <script src="game.js"></script>
 </html>
