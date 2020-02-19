@@ -1,5 +1,10 @@
 (function() {
+// Wrapping all the code inside an immediately invoked function
+// now all variables are wrapped up within the scope of THIS anonymous function. So if this file is used in conjunction with another javascript file, there will be no problems with same name variables
+
+// strict mode ensures errors will be thrown rather than failing silently
    "use strict";
+  
      var quiz = {
      "name":"Super Hero Name Quiz",
      "description":"How many super heroes can you name?",
@@ -23,7 +28,7 @@
      var $start = document.getElementById("start");
      var $form = document.getElementById("answer");
      var $timer = document.getElementById("timer");
-     var $reloader = document.getElementById('reload');
+     var $reloader = document.getElementById("reload");
 
      /// view functions ///
    
@@ -69,13 +74,16 @@
        }
        return result;
      }
-   
-     function play(quiz){
+
+      // A main function that contains all the steps of playing the game
+    function play(quiz){ // we insert the quiz arr as an argument
        var score = 0; // initialize score
-       update($score,score);
+       update($score,score); // display score into header
        // initialize time and set up an interval that counts down every second
        var time = 20;
+      //update time element by displaying remaining time
        update($timer,time);
+       //The setInterval() method calls a function or evaluates an expression at specified intervals (in milliseconds). Syntax: (function, ms, params...); The clearInterval() method cancels the periodic execution of the function
        var interval = window.setInterval( countDown , 1000 );
        // hide button and show form
        hide($start);
@@ -85,17 +93,18 @@
          event.preventDefault();
          check(event.target.value);
          }, false);
+
        var question; // current question
        chooseQuestion();
    
-       // nested functions
-       
+  // nested functions
        function chooseQuestion() {
          console.log("chooseQuestion() invoked");
          var questions = quiz.questions.filter(function(question){
-           return question.asked === false;
+           return question.asked === false;//return array containing only questions that haven't been asked yet
          });
          // set the current question
+         // random is used to select a number between 1 and the length of this ,yet to asked questions, array.
          question = questions[random(questions.length) - 1];
          ask(question);
        }
@@ -105,7 +114,7 @@
          // set the question.asked property to true so it's not asked again
          question.asked = true;
          update($question,quiz.question + question.question + "?");
-         // clear the previous options
+         // clear the previous options(answers)
          $form.innerHTML = "";
          // create an array to put the different options in and a button variable
          var options = [], button;
@@ -126,7 +135,7 @@
          // choose an option from all the possible answers but without choosing the answer or the same option twice
          function chooseOption() {
            var option = quiz.questions[random(quiz.questions.length) - 1];
-           // check to see if the option chosen is the current question or already one of the options, if it is then recursively call this function until it isn't
+           // check to see if right option doesn't exist or if it does exist it appears already (more than once)
            if(option === question || options.indexOf(option.answer) !== -1) {
              return chooseOption();
            }
@@ -137,12 +146,12 @@
        function check(answer) {
          console.log("check() invoked");
          if(answer === question.answer){
-           update($feedback,"Correct!","correct");
+           update($feedback,"Correct!","correct");// add a 3rd arg to style as we wish
            // increase score by 1
            score++;
            update($score,score)
          } else {
-           update($feedback,"Wrong!","wrong");
+           update($feedback,"Wrong!","wrong");// add a 3rd arg to style as we wish
          }
          chooseQuestion();
        }
@@ -162,12 +171,13 @@
        function gameOver(){
          console.log("gameOver() invoked");
          // inform the player that the game has finished and tell them how many points they have scored
-         update($question,"Game Over, you scored " + score + " points");
+         update($question,"Game Over, you scored " + score + " points out of 8!");
          hide($form);
          hide($feedback)
-      // stop the countdown interval
+      // remove the interval (countdown) when game has finished (otherwise it will continue counting down ad infinitum)
          window.clearInterval(interval);
          show($reloader);
        }
-     }
-   }())
+     } // end of play
+
+   }())// Wrapping all the code inside an immediately invoked function

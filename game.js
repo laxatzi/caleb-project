@@ -60,8 +60,9 @@ var quizGame = {
   var $form = document.getElementById('answer');
   var $timer = document.getElementById('timer');
   var $reloader = document.getElementById('reload');
-/// My Functions ///
 
+
+/// My Functions ///
    //function to update elements on the page
       function update(element, content, klass){ // first param is the element to be updated,
                                                 // second param is the content that is to be updated with
@@ -73,6 +74,7 @@ var quizGame = {
          p.className = klass;
          }
       }
+   // functions to hide and show elements
       function hide(el){
          el.style.display = "none";
       }
@@ -95,6 +97,19 @@ var quizGame = {
 
 // Function Definitions
 
+   // use random function to make questions appear at random
+   function random(a,b,callback){
+      if(b === undefined){
+          // if only one parameter is supplied, assume the lower limit is 1 and upper is a
+          b=a, a=1;
+      }
+      var result = Math.floor((b-a+1)*Math.random()) + a;
+      if(typeof callback === "function"){
+         result = callback(result);
+      }
+      return result;
+   }
+
    // A main function that contains all the steps of playing the game
    function play(quizGame){ // we insert the quizGame arr as an argument
    //score
@@ -108,32 +123,32 @@ var quizGame = {
        hide($start);
        show($form);
    // add event listener to form for checking when it's been submitted
-         $form.addEventListener('submit', function(evt){
+         $form.addEventListener('click', function(evt){
             evt.preventDefault();
-            check($form[0].value);
+            check(evt.target.value);
          }, false);
    
       var question; // the current question
       chooseQuestion();
 
    // Nested Functions
-       // choose question
        function chooseQuestion(){
-          console.log("chooseQuestion() called");
+          console.log("chooseQuestion() invoked");
           var questions = quizGame.questions.filter(function(question) {
              return question.asked === false; //return array containing only questions that haven't been asked yet
           });
           // set the current question
-          question = questions[random(questions.length - 1)]; // random is used to select a number between 1 and the length of this ,yet to asked questions, array.
+          question = questions[random(questions.length) - 1]; // random is used to select a number between 1 and the length of this ,yet to asked questions, array.
           ask(question);
        }
-      // Ask
+      
          function ask(question){ // the question is displayed into the html instead of the dialogue
+            console.log("ask() invoked");
             update($question, quizGame.question + question);
             $form[0].value = ""; // remove prev answer
             $form[0].focus();    // give focus once more
          }
-      // Check
+      
          function check(answer){
          if(answer === quizGame.questions[i].answer){
             update($feedback,"Bravo. You earn one point!", "correct" ); // add a 3rd arg to style as we wish
@@ -172,18 +187,5 @@ var quizGame = {
          
       } // and play function
  
-   // use random function to make questions appear at random
-     function random(a,b,callback){
-        if(b === undefined){
-            // if only one parameter is supplied, assume the lower limit is 1 and upper is a
-            b=a, a=1;
-        }
-        var result = Math.floor((b-a+1)*Math.random() + a);
-        if(typeof callback === "function"){
-           result = callback(result);
-        }
-        return result;
-     }
-
-   }()); // Wrapping all the code inside an immediately invoked function
+ }()); // Wrapping all the code inside an immediately invoked function
 
