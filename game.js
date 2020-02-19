@@ -23,7 +23,32 @@ var quizGame = {
         "question": "Wonder Woman?",
         "answer": "Dianna Pierce",
         "asked": false
-     }
+     },
+     { 
+        "question": "Spider-man",
+         "answer": "Peter Parker", 
+         "asked": false
+     },
+     { 
+        "question": "Iron-man",
+        "answer": "Tony Stark", 
+        "asked": false 
+      },
+     {
+        "question": "Captain-America",
+         "answer": "Steve Rogers",
+          "asked": false
+      },
+     {
+        "question": "Black Panther",
+         "answer" : "T'Chaka",
+         "asked": false
+     },
+     {
+        "question": "Thor",
+        "answer": "Donald Blake",
+         "asked": false
+      }
    ]
 };
 

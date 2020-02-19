@@ -7,9 +7,14 @@
      "questions": [
      { "question": "Superman", "answer": "Clarke Kent", "asked": false },
      { "question": "Batman", "answer": "Bruce Wayne", "asked": false },
-     { "question": "Wonder Woman", "answer": "Dianna Prince", "asked": false }
+     { "question": "Wonder Woman", "answer": "Dianna Prince", "asked": false },
+     { "question": "Spider-man", "answer": "Peter Parker", "asked": false },
+     { "question": "Iron-man", "answer": "Tony Stark", "asked": false },
+     {"question": "Captain-America", "answer": "Steve Rogers", "asked": false},
+     {"question": "Black Panther", "answer" : "T'Chaka", "asked": false},
+     {"question": "Thor", "answer": "Donald Blake", "asked": false}
      ]
-     }
+     }// end of obj
    
      //// views ////
      var $question = document.getElementById("question");
