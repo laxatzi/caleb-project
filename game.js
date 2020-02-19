@@ -5,10 +5,10 @@
    // strict mode ensures errors will be thrown rather than failing silently
       "use strict";
      
-        var quiz = {
+        var quizGame = {
         "name":"Super Hero Name Quiz",
         "description":"How many super heroes can you name?",
-        "question":"What is the real name of ",
+        "questionCore":"What is the real name of ",
         "questions": [
         { "question": "Superman", "answer": "Clarke Kent", "asked": false },
         { "question": "Batman", "answer": "Bruce Wayne", "asked": false },
@@ -19,7 +19,7 @@
         {"question": "Black Panther", "answer" : "T'Chaka", "asked": false},
         {"question": "Thor", "answer": "Donald Blake", "asked": false}
         ]
-        }// end of obj
+        };// end of obj
       
         //// views ////
         var $question = document.getElementById("question");
@@ -50,7 +50,7 @@
         }
       
         // Event listeners
-        $start.addEventListener('click', function() { play(quiz) } , false);
+        $start.addEventListener('click', function() { play(quizGame); } , false);
       
         // hide the form at the start of the game
         hide($form);
@@ -59,7 +59,7 @@
         //add event listener for reloading page when clicking again button
        $reloader.addEventListener('click', function(){
          location.reload();
-      })
+      });
    
         //// function definitions ////
    
@@ -76,7 +76,7 @@
         }
    
          // A main function that contains all the steps of playing the game
-       function play(quiz){ // we insert the quiz arr as an argument
+       function play(quizGame){ // we insert the quiz arr as an argument
           var score = 0; // initialize score
           update($score,score); // display score into header
           // initialize time and set up an interval that counts down every second
@@ -94,26 +94,26 @@
             check(event.target.value);
             }, false);
    
-          var question; // current question
+          var questionCurrent; // current question
           chooseQuestion();
       
      // nested functions
           function chooseQuestion() {
             console.log("chooseQuestion() invoked");
-            var questions = quiz.questions.filter(function(question){
+            var questions = quizGame.questions.filter(function(question){
               return question.asked === false;//return array containing only questions that haven't been asked yet
             });
             // set the current question
             // random is used to select a number between 1 and the length of this ,yet to asked questions, array.
-            question = questions[random(questions.length) - 1];
-            ask(question);
+            questionCurrent = questions[random(questions.length) - 1];
+            ask(questionCurrent);
           }
           
-          function ask(question) {
+          function ask(questionCurrent) {
             console.log("ask() invoked");
             // set the question.asked property to true so it's not asked again
-            question.asked = true;
-            update($question,quiz.question + question.question + "?");
+            questionCurrent.asked = true;
+            update($question,quizGame.questionCore + questionCurrent.question + "?");
             // clear the previous options(answers)
             $form.innerHTML = "";
             // create an array to put the different options in and a button variable
@@ -123,7 +123,7 @@
             var option2 = chooseOption();
             options.push(option2.answer);
             // add the actual answer at a random place in the options array
-            options.splice(random(0,2),0,question.answer);
+            options.splice(random(0,2),0,questionCurrent.answer);
             // loop through each option and display it as a button
             options.forEach(function(name) {
               button = document.createElement("button");
@@ -134,9 +134,9 @@
             
             // choose an option from all the possible answers but without choosing the answer or the same option twice
             function chooseOption() {
-              var option = quiz.questions[random(quiz.questions.length) - 1];
+              var option = quizGame.questions[random(quizGame.questions.length) - 1];
               // check to see if right option doesn't exist or if it does exist it appears already (more than once)
-              if(option === question || options.indexOf(option.answer) !== -1) {
+              if(option === questionCurrent || options.indexOf(option.answer) !== -1) {
                 return chooseOption();
               }
               return option;
@@ -145,7 +145,7 @@
       
           function check(answer) {
             console.log("check() invoked");
-            if(answer === question.answer){
+            if(answer === questionCurrent.answer){
               update($feedback,"Correct!","correct");// add a 3rd arg to style as we wish
               // increase score by 1
               score++;
