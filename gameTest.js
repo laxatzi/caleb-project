@@ -145,7 +145,7 @@
    
        function check(answer) {
          console.log("check() invoked");
-         if(answer === question.answer){
+         if(answer === questionCurrent.answer){
            update($feedback,"Correct!","correct");// add a 3rd arg to style as we wish
            // increase score by 1
            score++;
