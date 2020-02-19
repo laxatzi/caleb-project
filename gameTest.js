@@ -18,7 +18,8 @@
      var $start = document.getElementById("start");
      var $form = document.getElementById("answer");
      var $timer = document.getElementById("timer");
-   
+     var $reloader = document.getElementById('reload');
+
      /// view functions ///
    
      function update(element,content,klass) {
@@ -43,9 +44,15 @@
    
      // hide the form at the start of the game
      hide($form);
-       
+     // hide the reload button before the game is over
+     hide($reloader);
+     //add event listener for reloading page when clicking again button
+    $reloader.addEventListener('click', function(){
+      location.reload();
+   })
+
      //// function definitions ////
-     
+
      function random(a,b,callback) {
        if(b===undefined) {
          // if only one argument is supplied, assume the lower limit is 1
@@ -151,10 +158,11 @@
          console.log("gameOver() invoked");
          // inform the player that the game has finished and tell them how many points they have scored
          update($question,"Game Over, you scored " + score + " points");
-         // stop the countdown interval
-         window.clearInterval(interval);
          hide($form);
-         show($start);
+         hide($feedback)
+      // stop the countdown interval
+         window.clearInterval(interval);
+         show($reloader);
        }
      }
    }())
