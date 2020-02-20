@@ -50,7 +50,7 @@
      }
    
      // Event listeners
-     $start.addEventListener('click', function() { play(quiz) } , false); //look at 'captures.js' file for elaboration on the third 'false' argument
+     $start.addEventListener('click', function() { play(quiz) } , false); // third arg is useCapture parameter for preventing event capturing on older browsers
    
      // hide the form at the start of the game
      hide($form);
