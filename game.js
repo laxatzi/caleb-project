@@ -1,6 +1,6 @@
 (function() {
    // Wrapping all the code inside an immediately invoked function
-   // now all variables are wrapped up within the scope of THIS anonymous function. So if this file is used in conjunction with another javascript file, there will be no problems with same name variables
+   // now all variables are wrapped up within the scope of THIS anonymous function. So if this file is used in conjunction with another javascript file, there will be no problems with same name variables (name pollution)
    
    // strict mode ensures errors will be thrown rather than failing silently
       "use strict";

@@ -16,10 +16,13 @@
  }
  
  header {
-   font: bold 36px/120% Arial, Helvetica, sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 150%;
+   font-weight: bold;
    background: #333;
    color: #c00;
    text-transform: uppercase;
+   padding: 5%;
  }
  
  section p {
