@@ -11,8 +11,6 @@
    -Loops
    -Variable declarations that are NOT constant (var or let);
    -Void Functions
-   -Object Mutation
-   -Array Mutator Methods
    -Object Mutations (obj.prop = 5;)
    -Array Mutator Methods (e.g pop, push, reverse etc)
    -Map Mutator Methods (e.g clear, delete, set)
@@ -34,6 +32,7 @@
 function multiply(a, b) {
    return a * b;
  }
+
 // Examples of impure functions
 let heightRequirement = 46;
 
@@ -57,5 +56,19 @@ function multiply(a, b) {
    -Date.now
    -$.ajax(where $==the Ajax library of your choice)
 
-   Living in a perfect world ...
+   Living in a perfect world, all our functions would be pure, but as you can tell from the above list, any meaningful program will certainly contain impure functions.
+   Most of the time we will need to make an AJAX call, check the current date, or get a random number. 
+   A good rule of thumb is to follow the 80/20 rule.
+
+   There are several benefits to pure functions:
+     -They are easier to debug and reason about, coz they don't depend on mutable state.
+     -The return value can be cashed or "memorized" to avoid recomputing in the future.
+     -They are easier to test coz there are no dependencies that need to be mocked. 
+
+     If a func you are using is void (no return value), that is a clue that is impure. If the function has no return value, then either it is a no-op or causing some side effect. Along the same lines, 
+     if you call a function but do not use its return value, you are probably relying on it to do some side effect and it is an impure function. 
+
+     IMMUTABILITY
+
+     
 */
