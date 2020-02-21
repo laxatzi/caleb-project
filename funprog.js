@@ -308,3 +308,106 @@ console.log(factorial(3)); // 6
                 r = p (return product when base is reached)
 
 */
+
+// Higher Order Functions
+ /* 
+    In JS we can pass a function as parameter to another function and we can also return a function from a function
+    this are first-class functions that can be passed around just like any other value.
+    One way to think of a higher order function is: it is a function that accepts a callback function.
+    Example of using built in higher order functions
+ */
+
+ (function(){
+    "use strict";
+    const vehicles = [
+      {
+        brand: "Honda",
+        model: "CR-V",
+        type: "Suv",
+        price: 24050
+      },
+      {
+        brand: "Toyota",
+        model: "Yaris",
+        type: "City",
+        price: 13077
+      },
+      {
+        brand: "Opel",
+        model: "Astra",
+        type: "Sedan",
+        price: 17800
+      },
+      {
+        brand: "Ford",
+        model: "Explorer",
+        type: "Suv",
+        price: 32440
+      }
+    ];
+
+    const avgSuvPrice = vehicles.filter(v => v.type === 'Suv')
+                                .map(v => v.price)
+                                .reduce((sum, price, i, array) => sum + price / array.length, 0);
+    
+    console.log(avgSuvPrice); // 28245
+
+ }());// wrapper IIFE end 
+
+ /* 
+     In the above example we call methods on an array object, which is characteristic of OOP. If we wanted to make it a bit more representative of functional programming, we could use functions provided by the Ramda library.
+     Note that in Ramda the mean function is used instead the reduce function:
+ */
+
+ (function(){
+    "use strict";
+    const vehicles = [
+      {
+        brand: "Honda",
+        model: "CR-V",
+        type: "Suv",
+        price: 24050
+      },
+      {
+        brand: "Toyota",
+        model: "Yaris",
+        type: "City",
+        price: 13077
+      },
+      {
+        brand: "Opel",
+        model: "Astra",
+        type: "Sedan",
+        price: 17800
+      },
+      {
+        brand: "Ford",
+        model: "Explorer",
+        type: "Suv",
+        price: 32440
+      }
+    ];
+
+   // Using pipe (executes the functions from top to bottom)
+      const avgSuvPrice = R.pipe(
+        R.filter(v => v.type === 'Suv'),
+        R.map(v => v.price),
+        R.mean
+      )(vehicles);
+
+      console.log(avgSuvPrice); //  28245
+
+   // Using compose (executes the functions from bottom to top)
+      const avgSuvPrice = R.compose(
+        R.mean,
+        R.map(v => v.price),
+        R.filter(v => v.type === "Suv")
+        )(vehicles);
+
+      console.log(avgSuvPrice); // 28245
+}()); // wrapper IIFE end
+
+// The advantage of the functional approach is that it separates the data (i.e vehicles) from the logic(filter, map, reduce) in contrary with OOP patterns.
+
+
+// CURRYING
