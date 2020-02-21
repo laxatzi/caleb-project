@@ -170,3 +170,48 @@ function multiply(a, b) {
         Sometimes creating new objects instead of mutating existing ones can affect performance (depending on the project). 
         In that case consider using immutable.js 
   */
+
+ /* 
+      FUNCTION COMPOSITION 
+      
+      In algebra we have learnt function compositions
+      (f*g(x) = f(g(x)) it reads f composed with g
+      In functional programming, ideally, the entire program will be nothing but function composition
+      There will be 'no loops' in code. 
+      Let's talk about a couple of important points regarding function composition:
+         1. We can compose ANY number of functions (not just two).
+         2. A common way to compose functions is simply to take the output from the one function and pass it to the next (e.g f(g(n(x))))
+ */
+
+ // example
+ (function(){
+    'use strict';
+
+    function h(x){
+      return x + 1;
+    }
+
+    function g(x){
+      return x * x ;
+    }
+
+    function f(x){
+      return x.toString();
+    }
+
+    const y = f(g(h(1)));
+    console.log(y); // '4'
+
+ }());
+
+
+   /* 
+      There are libraries such as Ramda and lodash that provide a more elegant way of composing functions. Instead of simply passing the return value from one function to the next, they treat function composition in a  mathematical sense.
+       So in Ramda the above example would be:
+       // composite constant
+       const composite = R.compose(f,g,h);
+
+       // Execute 
+       const y = composite(1);
+       console.log(y); // '4'
+   */
