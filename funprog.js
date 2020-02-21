@@ -215,3 +215,50 @@ function multiply(a, b) {
        const y = composite(1);
        console.log(y); // '4'
    */
+
+   // RECURSIONS
+   /* 
+      A 'recursive function' is one that invokes itself until a certain condition is met. It is a useful tool to use when iterative processes are involved. 
+      A common example is a function that calculates the factorial of a number:
+   */
+  // using a loop we would write as follows:
+
+  function iterativeFactorial(n){
+    let product = 1;
+    for(let i =1; i<=n; i++){
+       product *= i;
+    }
+    return product;
+  }
+
+  console.log(iterativeFactorial(3)); //6
+
+  // using the functional approach
+  // since the functional approach eliminates the need to continually reassign variables  we need to use recursions to solve the factorial problem
+
+  // Recursion asks us to break the problem down to sub-problems that resemble the overall problem.
+  // Computing a factorial n! is like isolate n and multiply it by (n-1)! (thus n-1 reduces itself gradually until it meets certain criteria ).
+  // Now we have find a sub problem to solve (n-1)! that resembles the overall problem n!
+  // We need to have a base case to stop the recursion
+  // since min number to multiply the number is 1 we would think of n===1 as the base case.
+  // But due to complex math stuff we came to the conclusion that n===0 is the actual base case since 0! is defined to be 1.
+
+  function recursiveFactorial(n){
+    // Base case
+    if(n === 0) {
+      return 1; // 0! === 1
+    }
+    return n * recursiveFactorial(n-1); 
+  }
+/* 
+    STACK TRACE the above recursive function
+
+    n = 3
+  **r = 3*2 => n = 2
+               r= 2 *1 => n =1
+                          r = 1 *1  => n = 0
+                                       r= 1
+
+  ** (final ...since the stack traces from bottom to top... return value) 
+                              
+*/
