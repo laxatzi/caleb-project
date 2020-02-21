@@ -411,3 +411,63 @@ console.log(factorial(3)); // 6
 
 
 // CURRYING
+
+/* 
+    Informally, Currying is the process of taking a function that accepts 'n' args and turning it to n functions that each of them accepts a single arg.
+    Arity = is the number of args or operands that a function or operation in logic, maths, and CS takes.
+    Function that accepts a single argument/operand = unary
+    Function that accepts two arguments = binary
+    Function that accepts three arguments = ternary 
+    Function that accepts n arguments = n-ary
+
+    Therefor we can define currying as the process of taking an n-ary function and turning it into n unary functions. Let's start with a simple example, a function that takes the dot product of two vectors. 
+    Recall from linear algebra that the dot product of two vectors [a, b, c] and [x, y, z] is equal to ax + by + cz.
+    The dot function is 'binary' since it accepts two arguments (vectors), however, we can MANUALLY convert it into two unary functions, as the following example shows.
+*/
+
+(function(){
+  "use strict";
+  function curriedDot(vector1){
+    return function(vector2){
+      return vector1.reduce((sum, element, index) => sum =+ element * vector2[index], 0);
+    }
+  } // end of function 
+
+  // taking the dot product of any vector with [1,1,1]
+  // is equivalent to summing up the elements of the other vector
+
+  const sumElements = curriedDot([1,1,1]);
+
+  console.log(sumElements([1,3,-5]));//-1
+  console.log(sumElements([4,-2,-1])); //1
+
+}()); // wrapping IIFE end
+
+/* 
+    Fortunately, thanks to libraries like Ramda, we don't have to convert each one of our functions to a curried form. 
+    In fact, they do a hybrid type of currying, where you can either call the function one arg at a time, or you can continue to pass the args at once, just like the original.
+
+*/
+
+(function(){
+  "use strict";
+  function dot(vector1, vector2) {
+    return vector1.reduce((sum, element, index)=> sum += element * vector2[index], 0);
+  }
+  const vec1 = [1,3,-5];
+  const vec2 = [4, -2, -1];
+
+  // use Ramda to do the currying for us
+  const curriedDot = R.curry(dot);
+
+  const sumElements = curriedDot([1,1,1]);
+
+  console.log(sumElements(vec1)); // -1
+  console.log(sumElements(vec2)); // 1
+
+  // You can still call the curried function with two args
+  console.log(curriedDot(vec1, vec2)); // 3
+
+}());//end wrapper iife
+
+// 
