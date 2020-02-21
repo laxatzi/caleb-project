@@ -262,3 +262,16 @@ function multiply(a, b) {
   ** (final ...since the stack traces from bottom to top... return value) 
                               
 */
+
+// TAIL CALL OPTIMIZATION
+/* 
+    Tail call optimization is a technique used to improve the recursive performance of a program.
+    It is a clever trick that eliminates the memory overhead of recursion. 
+    It allows the browser to omit stack frames if the last thing that the recursive function does is call itself and return the result.
+
+    In the stack we traced above, after the recursive function call there is still an additional computation to be made (i.e r*n or 3*2[line 257])
+
+    That means that the browser cannot optimize it using PTC; however, we can rewrite(optimize) the function in such a way that the last step is the recursive call. One trick to achieve this is to pass the intermediate result (in our case the 'product' ) into the function as an argument.
+
+    
+*/
