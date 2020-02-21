@@ -275,3 +275,36 @@ function multiply(a, b) {
 
     
 */
+(function(){
+  "use strict";
+
+   // tail call optimized
+   function factorial(n, product=1){
+     if(n===0){
+       return product;
+     }
+     return factorial(n-1, product*n);
+   }
+console.log(factorial(3)); // 6
+
+}());// end of code
+
+// lets visualize the above stack trace
+/* 
+    In this case the stack grow no more than two frames.
+    The reason is that we pass all the necessary info (i.e product) into the function
+    so after the product has been updated, the browser can throw out the stack frame.
+
+    n=3
+    p=1
+    r =>
+        n=2
+        p=2
+        r =>
+            n=1
+            p=6
+            r => 
+                n=0
+                r = p (return product when base is reached)
+
+*/
