@@ -470,7 +470,7 @@ console.log(factorial(3)); // 6
 
 }());//end wrapper iife
 
-// Skip over an Argument
+// PARTIAL APPLICATION
 /* 
     Both Ramda and lodash allow you to "skip over" an argument and specify it later.
     They do this using a placeholder. 
@@ -498,3 +498,10 @@ console.log(factorial(3)); // 6
 
 }());//end wrapper iife
 
+// Partial application and Currying
+
+/* 
+    Partial application and currying often go hand in hand. A curried function is still a curried function even if it hasn't been given any arguments.
+    Partial application, on the other hand, is when 
+
+*/
