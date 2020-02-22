@@ -502,6 +502,29 @@ console.log(factorial(3)); // 6
 
 /* 
     Partial application and currying often go hand in hand. A curried function is still a curried function even if it hasn't been given any arguments.
-    Partial application, on the other hand, is when 
+    Partial application, on the other hand, is when a function has been given some, but not all, of the arguments.
+    Currying is often used to do partial application, but it is not the only way.
+
+    The javascript language has a built in mechanism for doing partial application without curring.
+    This is done using the 'function.prototype.bind' method. One idiosyncrasy of this method is that it requires you to pass the value of 'this' as the first argument. If you are not doing OOP, then you can ignore 'this' by passing in 'null'.
+    Example:
 
 */
+
+(function(){
+  'use strict';
+  function giveMe3(item1, item2, item3){
+    return `
+      1: ${item1}
+      2: ${item2}
+      3: ${item3}
+    `;
+  }
+
+   const giveMe2 = giveMe3.bind(null, 'rock');
+   const giveMe1 = giveMe2.bind(null, 'paper');
+   const result = giveMe1.bind( 'scissors');
+
+   console.log(result); // 
+
+}());//end wrapper iife
