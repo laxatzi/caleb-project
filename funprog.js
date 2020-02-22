@@ -470,4 +470,31 @@ console.log(factorial(3)); // 6
 
 }());//end wrapper iife
 
-// 
+// Skip over an Argument
+/* 
+    Both Ramda and lodash allow you to "skip over" an argument and specify it later.
+    They do this using a placeholder. 
+    Ramda specifically uses a double underscore as a placeholder
+    Example:
+ */
+(function(){
+  "use strict";
+
+  const giveMe3 =  R.curry(function(item1, item2, item3){
+    return `
+      1: ${item1} 
+      2: ${item2}
+      3: ${item3}
+    `;
+  });
+  // giveMe2
+    const giveMe2 = giveMe3(R.__, R.__, "French Hens"); // specify the third argument
+    const giveMe1 = giveMe2('Partridge in a pear tree'); // This will go in the first slot
+    const result = giveMe1('Turtle Doves');// Finally fill the second argument
+
+    console.log(result); // 1: French Hens 
+                        // 2: Partridge in a pear tree
+                        // 3: Turtle Doves
+
+}());//end wrapper iife
+
