@@ -413,6 +413,30 @@ console.log(factorial(3)); // 6
 // CURRYING
 
 /* 
+    A function is said to be 'curried' when not all arguments have been supplied to the function, so it return another function that retains the arguments given and expects the remaining.
+    example:
+*/
+    (function(){
+      'use strict';
+      function multiplier(x,y){
+        if(y === undefined){
+            return function(z){
+              return z * x;
+            }
+        }else{
+          return x * y;
+        }
+      }
+
+    }());//end wrapper iife
+
+    console.log(multiplier(4,5)); // two arguments so the console logs 20
+    // one argument
+    const quadraple = multiplier(4);
+    console.log(quadraple(4)); // 16
+
+    }());//end wrapper iife
+/* 
     Informally, Currying is the process of taking a function that accepts 'n' args and turning it to n functions that each of them accepts a single arg.
     Arity = is the number of args or operands that a function or operation in logic, maths, and CS takes.
     Function that accepts a single argument/operand = unary
